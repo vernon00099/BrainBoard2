@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Account - Join Us Today</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">
+            <h1>Create Account</h1>
+            <p>Join us today and get started</p>
+        </div>
+
+        <div class="success-msg" id="successMsg">
+            ✅ Account created successfully! Welcome aboard!
+        </div>
+
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required />
+                <div class="error-msg" id="firstNameError">First name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required />
+                <div class="error-msg" id="lastNameError">Last name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+                <div class="error-msg" id="emailError">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required />
+                    <span class="password-toggle" id="togglePassword">👁</span>
+                </div>
+                <div class="error-msg" id="passwordError">Password must be at least 8 characters</div>
+                <div class="password-strength" id="passwordStrength">
+                    <div class="strength-meter">
+                        <div class="strength-fill"></div>
+                    </div>
+                    <span class="strength-text">Password strength</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required />
+                    <span class="password-toggle" id="toggleConfirmPassword">👁</span>
+                </div>
+                <div class="error-msg" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+                <div class="error-msg" id="phoneError">Please enter a valid phone number</div>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="terms" required />
+                    I agree to the <a href="privacy.html" class="terms-link">Terms of Service</a> and <a href="policy.html" class="terms-link">Privacy Policy</a>
+                </label>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="newsletter" />
+                    Subscribe to our newsletter for updates and promotions
+                </label>
+            </div>
+
+            <button type="submit" class="signup-btn" id="signupButton">
+                <span class="spinner"></span>
+                <span class="btn-text">Create Account</span>
+            </button>
+        </form>
+
+        <div class="login-text">
+            Already have an account? <a href="#" id="loginLink">Sign in</a>
+        </div>
+    </div>
+
+    <script src="create.js"></script>
+</body>
+</html>
