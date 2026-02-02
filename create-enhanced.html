@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.brainboard.example.com; frame-ancestors 'none';" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <title>Create Account - BrainBoard (Secure)</title>
+    <link rel="stylesheet" href="create.css">
+    
+    <script>
+        // Security: Prevent clickjacking
+        if (top !== self) {
+            top.location = self.location;
+        }
+    </script>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">
+            <h1>🔒 Create Secure Account</h1>
+            <p>Join us today with enhanced security</p>
+        </div>
+
+        <div class="success-msg" id="successMsg">
+            ✅ Account created successfully! Welcome aboard!
+        </div>
+
+        <form id="signupForm" autocomplete="on">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input 
+                    type="text" 
+                    id="firstName" 
+                    name="firstName" 
+                    required 
+                    autocomplete="given-name"
+                    maxlength="50"
+                    pattern="[A-Za-z\s]{2,50}"
+                />
+                <div class="error-msg" id="firstNameError">First name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    required 
+                    autocomplete="family-name"
+                    maxlength="50"
+                    pattern="[A-Za-z\s]{2,50}"
+                />
+                <div class="error-msg" id="lastNameError">Last name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    autocomplete="email"
+                    maxlength="100"
+                />
+                <div class="error-msg" id="emailError">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        autocomplete="new-password"
+                        maxlength="100"
+                    />
+                    <span class="password-toggle" id="togglePassword">👁</span>
+                </div>
+                <div class="error-msg" id="passwordError">Password must be at least 8 characters</div>
+                <div class="password-strength" id="passwordStrength">
+                    <div class="strength-meter">
+                        <div class="strength-fill"></div>
+                    </div>
+                    <span class="strength-text">Password strength</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-container">
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        required 
+                        autocomplete="new-password"
+                        maxlength="100"
+                    />
+                    <span class="password-toggle" id="toggleConfirmPassword">👁</span>
+                </div>
+                <div class="error-msg" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="+1 (555) 123-4567" 
+                    autocomplete="tel"
+                    maxlength="20"
+                />
+                <div class="error-msg" id="phoneError">Please enter a valid phone number</div>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="terms" required />
+                    I agree to the <a href="privacy.html" class="terms-link" target="_blank" rel="noopener noreferrer">Terms of Service</a> and <a href="policy.html" class="terms-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                </label>
+            </div>
+
+            <div class="form-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="newsletter" />
+                    Subscribe to our newsletter for updates and promotions
+                </label>
+            </div>
+
+            <button type="submit" class="signup-btn" id="signupButton">
+                <span class="spinner"></span>
+                <span class="btn-text">Create Secure Account</span>
+            </button>
+        </form>
+
+        <div class="login-text">
+            Already have an account? <a href="login-enhanced.html" id="loginLink">Sign in</a>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 8px; font-size: 0.85em;">
+            <strong>🔒 Security Features:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px; color: #666;">
+                <li>Password strength validation</li>
+                <li>Input sanitization</li>
+                <li>XSS & SQL injection protection</li>
+                <li>Encrypted data storage</li>
+                <li>Rate limiting protection</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Load Security Module First -->
+    <script src="api-config.js"></script>
+    <!-- Then Load Page Script -->
+    <script src="create-enhanced.js"></script>
+</body>
+</html>
